@@ -67,16 +67,16 @@
         <audio data-key="76" src="https://github.com/wesbos/JavaScript30/blob/master/01%20-%20JavaScript%20Drum%20Kit/sounds/tom.wav?raw=true"></audio>
        <script>
            
-           window.addEventListener('keydown',function(e)
+           window.addEventListener('keydown',function(e)        //window par koi bhi key press ho
            {
                //const audio=document.querySelector('audio[data-key=$"{e.keycode}"]');
-               const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+               const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);     //  grabbing the audio for the pressed keycode 
                
                if(!audio)
                {
-                   return;
+                   return;        
                }
-               audio.currentTime=0;
+               audio.currentTime=0;       //if key is pressed again and again then dont wait for the sound to play full quickly rewind it
     /*           var promise = document.querySelector('audio').play();
 
         if (promise !== undefined) {
@@ -87,26 +87,27 @@
                 // Show a "Play" button so that user can start playback.
             });
                 } */
-                audio.play();
-                const key = document.querySelector(`.square[data-key="${e.keyCode}"]`);
+                audio.play();       //play the audio
+                const key = document.querySelector(`.square[data-key="${e.keyCode}"]`);   //grab the div that has the key pressed
                 console.log(key);
-                key.classList.add('playing');
+                key.classList.add('playing');   //add a class to it
 
 
            });
            function removetransition(e)
            {
                //console.log(e);
-               if(e.propertyName!=='transform')
+               if(e.propertyName!=='transform')            
                {
                    return;
                }
-               console.log(e.propertyName);
-               this.classList.remove('playing');
+               console.log(e.propertyName);      //now here only one propertyname is left ie transform
+               this.classList.remove('playing');    //this refers to the div that has been passed to the function and here we remove the class 
                console.log(this);
            }
-           const keys=document.querySelectorAll('.square');
-           keys.forEach(square=>square.addEventListener('transitionend',removetransition));
+           const keys=document.querySelectorAll('.square');   //array of all the divs having keycodes
+           keys.forEach(square=>square.addEventListener('transitionend',removetransition));   // => is a Es6 feature where class square is the parameter that is passed to function removetransition
+            //we loop through all keys and wherever there is transitionend we call the remove transition fn.
        </script>
 
 
