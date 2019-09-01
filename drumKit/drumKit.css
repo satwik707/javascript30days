@@ -1,0 +1,25 @@
+body{
+    background:url("https://wallpapercave.com/wp/sE4Zfhx.gif");
+}
+.square{
+    height:70px;
+    width:70px;
+    background-color:whitesmoke;
+    opacity: 0.5;
+    text-align:center;
+    display:inline-block;
+    margin-top:25%;
+    margin-left:5.5%;
+    border:solid 5px yellowgreen;
+    transition:all 0.07s;
+    
+}
+.playing{
+    transform:scale(1.1);
+    border-color:yellow;
+
+}
+kbd{
+    display:block;
+    font-size:40px;
+}
